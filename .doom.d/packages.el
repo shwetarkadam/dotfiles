@@ -61,3 +61,6 @@
 ;; $DOOMDIR/config.el
 (use-package! org-pandoc-import :after org)
 (package! org-bullets)
+(package! org-superstar)
+(package! org-super-agenda)
+(package! ox-hugo)
