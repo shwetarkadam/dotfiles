@@ -74,9 +74,9 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
-(setq-hook! '+doom-dashboard-mode-hook default-directory "~")
+(setq-hook! '+doom-dashboard-mode-hook default-directory "~/org")
 (setq
-    org-superstar-headline-bullets-list '("?" "?" "?" "?" "?")
+    org-superstar-headline-bullets-list '( "❯" "✿" "▶" "◉" "✸" "○")
 )
 (use-package! org-super-agenda
   :after org-agenda
@@ -118,6 +118,20 @@
 ;; The buffer you put this code in must have lexical-binding set to t!
 ;; See the final configuration at the end for more details.
 
-(setq
-    org-superstar-headline-bullets-list '("⁖" "◉" "○" "✸" "✿")
+(setq doom-theme 'doom-monokai-classic)
+
+(setq hugo-base-dir "~/myblog")
+
+(setq org-todo-keywords '((sequence "TODO(t)" "STARTED(s)" "WAITING(w)" "PR(p)" "|" "MERGED(m)" "DONE(d)" "CANCELLED(c)" "DELEGATED(g)"))
+        org-capture-templates
+        (quote (("t" "todo" entry (file "~/org/scribbles/work.org")
+                 "** TODO %?\n  SCHEDULED: %T\n%a\n")
+                ("r" "review" entry (file "~/org/scribbles/work.org")
+                 "** TODO %? Review :noreport:\n  SCHEDULED: %T\n%a\n")
+                ("a" "adm" entry (file "~/org/scribbles/adm.org")
+                 "** TODO %? \n  SCHEDULED: %T\n%a\n")
+                ("i" "idea" entry (file "~/org/ideas.org")
+                 "** TODO %?\n  SCHEDULED: %T\n%a\n"))
 )
+)
+
